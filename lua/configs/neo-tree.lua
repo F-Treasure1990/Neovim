@@ -1,9 +1,10 @@
 local M = {}
+
 function M.config()
 local status_ok, neotree = pcall(require, "neo-tree")
 if status_ok then
 neotree.setup{
-        close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
+        close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
         popup_border_style = "rounded",
         enable_git_status = true,
         enable_diagnostics = true,
@@ -60,8 +61,8 @@ neotree.setup{
           },
         },
         window = {
-          position = "float",
-          width = 40,
+          position = "left",
+          width = 30,
           mapping_options = {
             noremap = true,
             nowait = true,
@@ -129,7 +130,7 @@ neotree.setup{
           use_libuv_file_watcher = false, -- This will use the OS level file watchers to detect changes
                                           -- instead of relying on nvim autocmd events.
           window = {
-            popup = {
+          --[[  popup = {
               position = { col = "50%", row = "30%" },
               size = {width = "80%", height = "80%"}
               --[[size = function(state)
@@ -139,8 +140,8 @@ neotree.setup{
                   width = math.max(root_len, 50),
                   height = vim.o.lines - 6
                 }
-              end]]
-            },
+              end
+            }]]
             mappings = {
               ["<bs>"] = "navigate_up",
               ["."] = "set_root",

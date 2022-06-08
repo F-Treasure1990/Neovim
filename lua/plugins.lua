@@ -2,8 +2,17 @@ require('configs.packer')
 require('packer').startup(function(use)
   --[[Packer]]--
   use 'wbthomason/packer.nvim'
+  
+ --[[ Colorizer ]]--
+ use {
+   'norcalli/nvim-colorizer.lua',
+event = { "BufRead", "BufNewFile" },
+config = function() 
+  require"colorizer".setup()
+end
+ }
 
-  --[[Neo-Tree]]-- File Explorer
+  --[[Neo-Tree]]-- 
 use {
   "nvim-neo-tree/neo-tree.nvim",
     branch = "v2.x",
@@ -20,4 +29,22 @@ use {
     require('configs.neo-tree').config()
   end
   }
-end)
+
+ --[[ Bufferline ]]--
+  use {
+    "akinsho/bufferline.nvim",
+    tag ="v2.*",
+    after = "nvim-web-devicons",
+    config = function()
+      require("configs.bufferline").config()
+    end
+  }
+  
+use {
+  "mrjones2014/smart-splits.nvim",
+    module = "smart-splits",
+    config = function()
+      require "configs.smart-splits".config()
+    end
+  }
+  end)

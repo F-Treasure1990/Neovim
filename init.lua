@@ -1,4 +1,5 @@
 local g = vim.g
+
 g.mapleader = " " -- set leader key
 g.do_filetype_lua = 1 -- use filetype.lua
 g.did_load_filetypes = 0 -- don't use filetype.vim
@@ -12,6 +13,7 @@ require"mappings"
   vim.fn.sign_define("DiagnosticSignHint",{text = "", texthl = "DiagnosticSignHint"})
 require"colors"
 
+vim.opt.fillchars:append { eob = " " } -- remove ~
 
 local Options = {
   backup = false,                          -- creates a backup file

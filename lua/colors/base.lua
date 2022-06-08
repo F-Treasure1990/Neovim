@@ -1,10 +1,25 @@
+local c = require"colors.palette"
 return  {
+--[[ Window ]]--
+  VertSplit= {fg=c.red}, -- vertical splits between buffers / neotree
+
 --[[ Important ]]--
-  Error = {fg="#FF0000" ,gui="undercurl"}, -- how Error text appears
+  Error = {fg=c.red ,gui="undercurl"}, -- how Error text appears
+
+--[[ Bufferline ]]--
+   BufferLineFill = {bg=c.bg }, -- full bar at back of tabs 
+   BufferLineSeparator = {bg=c.bg, fg=c.bg}, -- full bar at back of tabs 
+   BufferLineIndicatorSelected = {bg=c.bg, fg=c.bg}, -- full bar at back of tabs 
+--   BufferLineIndicatorVisible = {bg="#FF0000"},
+
 --[[ Popup Menu ]]--
   Pmenu = {fg="NONE", bg ="NONE" }, -- popup menu
+
   --[[ Neo-Tree ]]--
-  NeoTreeCursorLine = {fg="#FF0000", bg ="#FFFFFF" },
+  NeoTreeCursorLine = {fg=c.red, bg=c.white },
+  NeoTreeNormal = {bg=c.bg}, -- Background 
+  NeoTreeNormalNC = { bg=c.bg}, -- Background when unfocused
+
   
 --NeoTreeBufferNumber       -- The buffer number shown in the buffers source.
 --NeoTreeCursorLine         -- |hl-CursorLine| override in Neo-tree window.

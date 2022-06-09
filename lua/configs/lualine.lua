@@ -23,55 +23,44 @@ local M = {}
       t = c.red,
     }
 
+
 local theme = {
-normal = {
+        normal = {
                 a = {}, 
                 b = {bg = c.black},
                 c = { bg = c.bg}, -- does whole main background weirdly
+                z = { fg = c.black}, -- does whole main background weirdly
+
             },
-            --[[visual = {
-                a = { fg = c.grey_alt, bg = c.purple, gui = "bold" },
-                b = { fg = c.gray, bg = c.purple},
-                c = { fg = c.gray, bg = c.purple},
+           visual = {
+              a = {}, 
+                b = {bg = c.black},
+                c = { bg = c.bg}, -- does whole main background weirdly
+                z = { fg = c.black}, -- does whole main background weirdly
+
             },
             replace = {
-                a = { fg = c.grey_alt, bg = c.red, gui = "bold" },
-                b = { fg = c.gray, bg = c.red},
-                c = { fg = c.gray, bg = c.red},
-            },
-            normal = {
-                a = { fg = c.gray_alt, bg = c.orange, gui = "bold" },
-                b = { fg = c.gray, bg = c.orange},
-                c = { fg = c.gray, bg = c.orange},
+                a = {}, 
+                b = {bg = c.black},
+                c = { bg = c.bg}, -- does whole main background weirdly
+                z = { fg = c.black}, -- does whole main background weirdly
             },
             insert = {
-                a = { fg = c.darkgray, bg = c.green, gui = "bold" },
-                b = { fg = c.gray, bg = c.green},
-                c = { fg = c.gray, bg = c.green},
+                a = {}, 
+                b = {bg = c.black},
+                c = { bg = c.bg}, -- does whole main background weirdly
+                z = { fg = c.black}, -- does whole main background weirdly
             },
             command = {
-                a = { fg = c.gray_alt, bg = c.orange, gui = "bold" },
-                b = { fg = c.gray, bg = c.orange},
-                c = { fg = c.gray, bg = c.orange},
-            },]]
+               a = {}, 
+                b = {bg = c.black},
+                c = { bg = c.bg}, -- does whole main background weirdly
+                z = { fg = c.black}, -- does whole main background weirdly
+            }
 }
 
-function M.config()
-  local status_ok, lualine= pcall(require, "lualine")
-  if status_ok then
-lualine.setup({
-   options = {
-    icons_enabled = true,
-    theme = theme,
-    component_separators = { left = '', right = ''},
-    section_separators = { left = '', right = ''},
-    disabled_filetypes = {"neo-tree"},
-    always_divide_middle = true,
-    globalstatus = false,
-  },
-  sections = {
-  lualine_a = {
-    {
+
+local a =  {
       'mode',
       icons_enabled = true, 
       icon = nil,
@@ -83,8 +72,7 @@ lualine.setup({
       type = nil,
       padding = 1, 
     }
-  },
-  lualine_b ={
+local b = {
   {
       'branch',
       icons_enabled = true, 
@@ -103,10 +91,8 @@ lualine.setup({
       type = nil,
 
     }
-
-  },
-  lualine_c ={
-    {
+  }
+local c =   {
     "filename",
     path =0,
     shortening_target = 40,
@@ -118,15 +104,8 @@ lualine.setup({
     color = function(section)
        return { fg = colors[vim.fn.mode()] }
       end,
-
     }
-  },
-
-  lualine_x ={"diagnostics"},
-
-  lualine_y ={
-
-
+local y = {
 {
       'diff',
       colored = true, -- Displays a colored diff status if set to true
@@ -145,23 +124,47 @@ lualine.setup({
     },
     {
 "filesize", 
-color = {fg=c.white},
+color = {fg=c.white, bg=c.white},
     },
+
+  }
+
+local z = {
     {
 "fileformat",
     color = function(section)
-      return { bg = colors[vim.fn.mode()], fg =c.black}
+      return { fg=c.black,bg = colors[vim.fn.mode()]}
     end,
       separator = {left= ''},     
-    }
-  },
-  lualine_z={
-    {"os.date('%d %b %y')", 
+    },
+  {"os.date('%d %b %y')", 
     color = function(section)
       return { bg = colors[vim.fn.mode()], fg =c.black}
     end,
     }
+  }
+
+function M.config()
+  local status_ok, lualine= pcall(require, "lualine")
+  if status_ok then
+lualine.setup({
+   options = {
+    icons_enabled = true,
+    theme = theme,
+    component_separators = { left = '', right = ''},
+    section_separators = { left = '', right = ''},
+    disabled_filetypes = {"neo-tree"},
+    always_divide_middle = true,
+    globalstatus = false,
   },
+  sections = {
+  lualine_a = {a},
+  lualine_b = b,
+  lualine_c ={c},
+  lualine_x ={"diagnostics"},
+
+  lualine_y = y,
+  lualine_z=z,
 },
   tabline = {},
   extensions = {}

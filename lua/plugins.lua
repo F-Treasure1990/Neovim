@@ -1,5 +1,6 @@
 require('configs.packer')
 require('packer').startup(function(use)
+
   --[[Packer]]--
   use 'wbthomason/packer.nvim'
   
@@ -39,12 +40,27 @@ use {
       require("configs.bufferline").config()
     end
   }
-  
-use {
+
+ --[[ Smart-Splits ]] 
+  use {
   "mrjones2014/smart-splits.nvim",
     module = "smart-splits",
     config = function()
       require "configs.smart-splits".config()
     end
   }
+
+  --[[ Bufdelete]]
+  use {
+    "famiu/bufdelete.nvim",
+ cmd = { "Bdelete", "Bwipeout" } 
+  }
+
+  use {
+  'nvim-lualine/lualine.nvim',
+  after = "nvim-web-devicons",
+    config = function()
+      require("configs.lualine").config()
+    end,
+}
   end)

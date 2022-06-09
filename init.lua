@@ -1,5 +1,4 @@
 local g = vim.g
-
 g.mapleader = " " -- set leader key
 g.do_filetype_lua = 1 -- use filetype.lua
 g.did_load_filetypes = 0 -- don't use filetype.vim
@@ -18,7 +17,7 @@ vim.opt.fillchars:append { eob = " " } -- remove ~
 local Options = {
   backup = false,                          -- creates a backup file
   clipboard = "unnamedplus",               -- allows neovim to access the system clipboard
-  cmdheight = 2,                           -- more space in the neovim command line for displaying messages
+  cmdheight = 1,                           -- more space in the neovim command line for displaying messages
   completeopt = { "menuone", "noselect" }, -- mostly just for cmp
   conceallevel = 0,                        -- so that `` is visible in markdown files
   cursorline = false,                       -- highlight the current line

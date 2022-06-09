@@ -45,7 +45,7 @@ map("n", "<leader>e", "<cmd>Neotree<Cr>", { desc = "File Explorer" })
   map("n", "<A-h>", function()
     require("smart-splits").resize_left()
   end, { desc = "Resize split left" })
-
+map("n", "<leader>c", "<cmd>Bdelete<cr>", { desc = "Close buffer" })
 
 
 

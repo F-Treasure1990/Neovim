@@ -1,3 +1,6 @@
+local M ={}
+
+function M.config()
 local status_ok, smart_splits = pcall(require, "smart-splits")
 if status_ok then
   smart_splits.setup {
@@ -10,3 +13,6 @@ if status_ok then
     ignored_buftypes = { "nofile" },
   }
 end
+end
+
+return M

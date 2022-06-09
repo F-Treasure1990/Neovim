@@ -14,12 +14,14 @@ return  {
 
 --[[ Popup Menu ]]--
   Pmenu = {fg="NONE", bg ="NONE" }, -- popup menu
+  lualine_c_command = {fg=c.white, bg =c.purple }, -- popup menu
 
   --[[ Neo-Tree ]]--
   NeoTreeCursorLine = {fg=c.red, bg=c.white },
-  NeoTreeNormal = {bg=c.bg}, -- Background 
+  NeoTreeNormal = {bg=c.bg, }, -- Background 
   NeoTreeNormalNC = { bg=c.bg}, -- Background when unfocused
-
+  NeoTreeStatusLine ={bg=c.bg, fg=c.black}, --bottom status bar 
+  NeoTreeStatusLineNC ={bg=c.bg}, --bottom status bar not focused
   
 --NeoTreeBufferNumber       -- The buffer number shown in the buffers source.
 --NeoTreeCursorLine         -- |hl-CursorLine| override in Neo-tree window.

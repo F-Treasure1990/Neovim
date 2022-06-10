@@ -1,7 +1,4 @@
---[[ Neo-Tre ]]--
-
--- Page Refresh
-
+--[[ LSP ]]
 local map = vim.keymap.set
 map("n", "qq", "<cmd>q<cr>", { desc = "Quit" })
 map("n", "<leader>w", "<cmd>:w<cr>", { desc = "Save" })
@@ -11,46 +8,46 @@ map("n", "<leader>r", "<cmd>luafile%<Cr>", { desc = "Refresh Page" })
 map("n", "<leader>e", "<cmd>Neotree<Cr>", { desc = "File Explorer" })
 
 -- [[ Bufferline ]]
-  map("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer tab" })
-  map("n", "<S-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Previous buffer tab" })
-  map("n", ">b", "<cmd>BufferLineMoveNext<cr>", { desc = "Move buffer tab right" })
-  map("n", "<b", "<cmd>BufferLineMovePrev<cr>", { desc = "Move buffer tab left" })
---[[  
+map("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer tab" })
+map("n", "<S-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Previous buffer tab" })
+map("n", ">b", "<cmd>BufferLineMoveNext<cr>", { desc = "Move buffer tab right" })
+map("n", "<b", "<cmd>BufferLineMovePrev<cr>", { desc = "Move buffer tab left" })
+--[[
 --[[ I bufferline is not used
 --map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next buffer" })
   map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Previous buffer" }) ]]
 
-  --[[ Buffers ]]
- map("n", "<C-h>", function()
-    require("smart-splits").move_cursor_left()
-  end, { desc = "Move to left split" })
-  map("n", "<C-j>", function()
-    require("smart-splits").move_cursor_down()
-  end, { desc = "Move to below split" })
-  map("n", "<C-k>", function()
-    require("smart-splits").move_cursor_up()
-  end, { desc = "Move to above split" })
-  map("n", "<C-l>", function()
-    require("smart-splits").move_cursor_right()
-  end, { desc = "Move to right split" })
-  map("n", "<A-j>", function()
-    require("smart-splits").resize_down()
-  end, { desc = "Resize split down" })
-  map("n", "<A-k>", function()
-    require("smart-splits").resize_up()
-  end, { desc = "Resize split up" })
-  map("n", "<A-l>", function()
-    require("smart-splits").resize_right()
-  end, { desc = "Resize split right" })
-  map("n", "<A-h>", function()
-    require("smart-splits").resize_left()
-  end, { desc = "Resize split left" })
+--[[ Buffers ]]
+map("n", "<C-h>", function()
+  require("smart-splits").move_cursor_left()
+end, { desc = "Move to left split" })
+map("n", "<C-j>", function()
+  require("smart-splits").move_cursor_down()
+end, { desc = "Move to below split" })
+map("n", "<C-k>", function()
+  require("smart-splits").move_cursor_up()
+end, { desc = "Move to above split" })
+map("n", "<C-l>", function()
+  require("smart-splits").move_cursor_right()
+end, { desc = "Move to right split" })
+map("n", "<A-j>", function()
+  require("smart-splits").resize_down()
+end, { desc = "Resize split down" })
+map("n", "<A-k>", function()
+  require("smart-splits").resize_up()
+end, { desc = "Resize split up" })
+map("n", "<A-l>", function()
+  require("smart-splits").resize_right()
+end, { desc = "Resize split right" })
+map("n", "<A-h>", function()
+  require("smart-splits").resize_left()
+end, { desc = "Resize split left" })
 map("n", "<leader>c", "<cmd>Bdelete<cr>", { desc = "Close buffer" })
 
 
 
 -- GitSigns
--- 
+--
 --[[
 if is_available "gitsigns.nvim" then
   map("n", "<leader>gj", function()

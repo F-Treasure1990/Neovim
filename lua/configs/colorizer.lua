@@ -1,5 +1,5 @@
-require 'colorizer'.setup({
-  'css';
-  'javascript';
-  html = { mode = 'background' };
-}, { mode = 'foreground' })
+require("colorizer").setup({
+	"css",
+	"javascript",
+	html = { mode = "background" },
+}, { mode = "foreground" })

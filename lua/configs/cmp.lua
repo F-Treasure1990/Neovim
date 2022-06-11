@@ -23,7 +23,7 @@ local cmp_icons = {
   Variable = "  ",
   Class = "  ",
   Interface = "  ",
-  Module = " ",
+  Module = "  ",
   Property = "  ",
   Unit = "  ",
   Value = "  ",
@@ -42,7 +42,9 @@ local cmp_icons = {
   TypeParameter = "  ",
 }
 
-require("luasnip/loaders/from_vscode").lazy_load()
+--require("luasnip/loaders/from_vscode").lazy_load()
+require'luasnip'.filetype_extend("react-ts", {"html"})
+require'luasnip'.filetype_extend("typescript", {"html"})
 local M = {}
 M.config = {
   cmp.setup {
@@ -57,6 +59,7 @@ M.config = {
         return not context.in_syntax_group("Comment")
       end
     end,
+    buffer = {enabled = false}, -- prevent in buffer like neotree
     snippet = {
       expand = function(args)
         luasnip.lsp_expand(args.body) -- For `luasnip` users.
@@ -78,7 +81,7 @@ M.config = {
       },
       -- Accept currently selected item. If none selected, `select` first item.
       -- Set `select` to `false` to only confirm explicitly selected items.
-      ["<CR>"] = cmp.mapping.confirm { select = true },
+      ["<CR>"] = cmp.mapping.confirm { select = false},
       ["<Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_next_item()
@@ -139,10 +142,10 @@ M.config = {
       select = false,
     },
     window = {
-      completion = { border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" }, scrollbar = "║" },
+      completion = { border = { "╭", "─", "╮", " ", "╯", "─", "╰", " " }, scrollbar = "│" },
       documentation = {
-        border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-        scrollbar = "║",
+        border = { "╭", " ", "╮", "│", "╯", " ", "╰", "│" },
+        scrollbar = "│",
       }, },
     experimental = {
       ghost_text = false,
@@ -158,3 +161,5 @@ M.config = {
   }
 }
 return M
+
+

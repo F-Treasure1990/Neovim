@@ -41,6 +41,49 @@ require('packer').startup(function(use)
     end
   }
 
+  --[[ Snippets ]]
+  use {
+    "L3MON4D3/LuaSnip",
+    module = "luasnip",
+    wants = "friendly-snippets",
+  }
+  use {
+    "rafamadriz/friendly-snippets",
+    opt = true
+  }
+
+  --[[ Cmp ]]
+  use {
+    "hrsh7th/nvim-cmp",
+    config = function()
+      require "configs.cmp"
+    end,
+  }
+
+  -- Snippet completion source
+  use {
+    "saadparwaiz1/cmp_luasnip",
+    after = "nvim-cmp",
+  }
+
+  -- Buffer completion source
+  use {
+    "hrsh7th/cmp-buffer",
+    after = "nvim-cmp",
+  }
+
+  -- Path completion source
+  use {
+    "hrsh7th/cmp-path",
+    after = "nvim-cmp",
+  }
+
+  -- LSP completion source
+  use {
+    "hrsh7th/cmp-nvim-lsp",
+    after = "nvim-cmp",
+  }
+
   --[[ Smart-Splits ]]
   use {
     "mrjones2014/smart-splits.nvim",
@@ -68,6 +111,7 @@ require('packer').startup(function(use)
     "neovim/nvim-lspconfig",
     event = { "VimEnter" }
   }
+
   use {
     "williamboman/nvim-lsp-installer",
     after = "nvim-lspconfig",
@@ -76,4 +120,8 @@ require('packer').startup(function(use)
       require "configs.lsp"
     end
   }
+  use {
+    "onsails/lspkind.nvim"
+  }
+
 end)

@@ -38,7 +38,6 @@ M.setup = function()
   vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
 end
 
-M.name = "bing bing"
 local map = vim.keymap.set
 local function lsp_keymaps(bufnr)
   map("n", "K", function()
@@ -93,6 +92,7 @@ M.on_attach = function(client, bufnr)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
+
 capabilities.textDocument.completion.completionItem.documentationFormat = { "markdown", "plaintext" }
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities.textDocument.completion.completionItem.preselectSupport = true
@@ -104,12 +104,9 @@ capabilities.textDocument.completion.completionItem.tagSupport = { valueSet = { 
 capabilities.textDocument.completion.completionItem.resolveSupport = {
   properties = { "documentation", "detail", "additionalTextEdits" },
 }
+local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 
---[[local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if not status_ok then
-  return
-end
+M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 
-M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)a]]
 
 return M

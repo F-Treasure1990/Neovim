@@ -5,15 +5,9 @@ g.did_load_filetypes = 0 -- don't use filetype.vim
 g.highlighturl_enabled = true -- highlight URLs by default
 require "plugins"
 require "mappings"
--- Diagnostics Errors
-vim.fn.sign_define("DiagnosticSignError", { text = " ", texthl = "DiagnosticSignError" })
-vim.fn.sign_define("DiagnosticSignWarn", { text = " ", texthl = "DiagnosticSignWarn" })
-vim.fn.sign_define("DiagnosticSignInfo", { text = " ", texthl = "DiagnosticSignInfo" })
-vim.fn.sign_define("DiagnosticSignHint", { text = "", texthl = "DiagnosticSignHint" })
 require "colors"
 
 vim.opt.fillchars:append { eob = " " } -- remove ~
-
 local Options = {
   backup = false, -- creates a backup file
   clipboard = "unnamedplus", -- allows neovim to access the system clipboard

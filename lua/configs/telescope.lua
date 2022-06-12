@@ -2,6 +2,7 @@ local status_ok, telescope = pcall(require, "telescope")
 if not status_ok then
 print("FAULT : telescope.lua")
 end
+local trouble = require("trouble.providers.telescope")
 local actions = require "telescope.actions"
 telescope.setup({
 defaults = {
@@ -63,7 +64,6 @@ defaults = {
           ["<C-x>"] = actions.select_horizontal,
           ["<C-v>"] = actions.select_vertical,
           ["<C-t>"] = actions.select_tab,
-
           ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
           ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
           ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,

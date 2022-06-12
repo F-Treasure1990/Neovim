@@ -12,18 +12,35 @@ require("packer").startup(function(use)
 		config = function()
 			require("colorizer").setup()
 		end,
-	}) --[[ Telescope ]]
+	})
+	--[[ Telescope ]]
 	--
 	use({
 		"nvim-telescope/telescope.nvim",
 		cmd = "Telescope",
 		module = "telescope",
-		requires = {  "nvim-lua/plenary.nvim"  },
+		requires = { "nvim-lua/plenary.nvim" },
 		config = function()
 			require("configs.telescope")
 		end,
 	})
 
+	use({
+		"folke/trouble.nvim",
+		requires = "kyazdani42/nvim-web-devicons",
+		config = function()
+			require("configs.trouble")
+		end,
+	})
+
+	--[[ Alpha ]]
+	use {
+    'goolord/alpha-nvim',
+    requires = { 'kyazdani42/nvim-web-devicons' },
+    config = function ()
+        require("configs.alpha")
+    end
+}
 	--[[ Neo-Tree ]]
 	--
 	use({

@@ -107,6 +107,14 @@ map("n", "<leader>fw", function()
   end, { desc = "Search diagnostics" })
 -- GitSigns
 --
+-- Lua
+vim.api.nvim_set_keymap("n", "tt", "<cmd>Trouble<cr>",
+  {silent = true, noremap = true}
+)
+vim.api.nvim_set_keymap("n", "<leader>t", "<cmd>Trouble workspace_diagnostics<cr>",
+  {silent = true, noremap = true}
+)
+
 --[[
 if is_available "gitsigns.nvim" then
   map("n", "<leader>gj", function()

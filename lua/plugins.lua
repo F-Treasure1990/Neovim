@@ -25,22 +25,14 @@ require("packer").startup(function(use)
 		end,
 	})
 
+	--[[ Alpha ]]
 	use({
-		"folke/trouble.nvim",
-		requires = "kyazdani42/nvim-web-devicons",
+		"goolord/alpha-nvim",
+		requires = { "kyazdani42/nvim-web-devicons" },
 		config = function()
-			require("configs.trouble")
+			require("configs.alpha")
 		end,
 	})
-
-	--[[ Alpha ]]
-	use {
-    'goolord/alpha-nvim',
-    requires = { 'kyazdani42/nvim-web-devicons' },
-    config = function ()
-        require("configs.alpha")
-    end
-}
 	--[[ Neo-Tree ]]
 	--
 	use({
@@ -68,6 +60,43 @@ require("packer").startup(function(use)
 			require("configs.autopairs")
 		end,
 	})
+
+	--[[ Treesitter ]]
+	use({
+		"windwp/nvim-ts-autotag",
+		after = "nvim-treesitter",
+	})
+	-- Parenthesis highlighting
+	use({
+		"p00f/nvim-ts-rainbow",
+		after = "nvim-treesitter",
+	})
+	use({
+		"numToStr/Comment.nvim",
+		after = "nvim-treesitter",
+		config = function()
+			require("configs.comment")
+		end,
+	})
+	use({
+		"nvim-treesitter/nvim-treesitter",
+		run = ":TSUpdate",
+		event = { "BufRead", "BufNewFile" },
+		cmd = {
+			"TSInstall",
+			"TSInstallInfo",
+			"TSInstallSync",
+			"TSUninstall",
+			"TSUpdate",
+			"TSUpdateSync",
+			"TSDisableAll",
+			"TSEnableAll",
+		},
+		config = function()
+			require("configs.treesitter")
+		end,
+	})
+
 	--[[ Bufferline ]]
 	--
 	use({

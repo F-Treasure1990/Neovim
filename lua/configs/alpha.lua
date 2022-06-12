@@ -26,6 +26,8 @@ end
 local logo = {
 	type = "text",
 	val = {
+	  "",
+	  "",
 		"            :h-                                  Nhy`               ",
 		"           -mh.                           h.    `Ndho               ",
 		"           hmh+                          oNm.   oNdhh               ",
@@ -100,7 +102,7 @@ local opts = {
 	layout = {
 		{ type = "padding", val = 2 },
 		logo,
-		{ type = "padding", val = 2 },
+		{ type = "padding", val = 4 },
 		buttons,
 		{ type = "padding", val = 2 },
 		footer,

@@ -67,9 +67,13 @@ map("n", "<leader>fw", function()
   map("n", "<leader>fb", function()
     require("telescope.builtin").buffers()
   end, { desc = "Search buffers" })
-  map("n", "<leader>fh", function()
+  map("n", "<leader>fb", function()
     require("telescope.builtin").help_tags()
   end, { desc = "Search help" })
+map("n", "<leader>fh", function()
+    require("telescope.builtin").highlights()
+  end, { desc = "Search help" })
+
   map("n", "<leader>fm", function()
     require("telescope.builtin").marks()
   end, { desc = "Search marks" })
@@ -108,13 +112,6 @@ map("n", "<leader>fw", function()
 -- GitSigns
 --
 -- Lua
-vim.api.nvim_set_keymap("n", "tt", "<cmd>Trouble<cr>",
-  {silent = true, noremap = true}
-)
-vim.api.nvim_set_keymap("n", "<leader>t", "<cmd>Trouble workspace_diagnostics<cr>",
-  {silent = true, noremap = true}
-)
-
 --[[
 if is_available "gitsigns.nvim" then
   map("n", "<leader>gj", function()

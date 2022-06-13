@@ -17,7 +17,5 @@ null_ls.setup({
 		formatting.codespell.with({ filetypes = { "markkdown", "html" } }),
 		diagnostics.eslint_d,
 		completion.luasnip,
-		completion.tags.with({filetypes={"javascript", "javascriptreact", "typescriptreact"}})
-
 	},
 })

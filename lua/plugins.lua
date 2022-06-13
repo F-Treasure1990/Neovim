@@ -62,10 +62,6 @@ require("packer").startup(function(use)
 	})
 
 	--[[ Treesitter ]]
-	use({
-		"windwp/nvim-ts-autotag",
-		after = "nvim-treesitter",
-	})
 	-- Parenthesis highlighting
 	use({
 		"p00f/nvim-ts-rainbow",
@@ -112,11 +108,6 @@ require("packer").startup(function(use)
 	use({
 		"L3MON4D3/LuaSnip",
 		module = "luasnip",
-		wants = "friendly-snippets",
-	})
-	use({
-		"rafamadriz/friendly-snippets",
-		opt = true,
 	})
 
 	--[[ Cmp ]]
@@ -195,5 +186,11 @@ require("packer").startup(function(use)
 	})
 	use({
 		"onsails/lspkind.nvim",
+	})
+	--react snipppets
+	use({
+		"dsznajder/vscode-es7-javascript-react-snippets",
+		after = "nvim-cmp",
+		run = "yarn install --frozen-lockfile && yarn compile",
 	})
 end)

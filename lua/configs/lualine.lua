@@ -97,9 +97,9 @@ local b = {
 
   }
 }
-local c = {
+local cc = {
   "filename",
-  path = 0,
+  path = 1,
   shortening_target = 40,
   symbols = {
     modified = ' ', -- Text to show when the file is modified.
@@ -129,7 +129,7 @@ local y = {
   },
   {
     "filesize",
-    color = { fg = c.white, bg = c.white },
+    color = { fg = c.white, bg = c.black},
   },
 
 }
@@ -137,13 +137,13 @@ local y = {
 local z = {
   {
     "fileformat",
-    color = function(section)
+    color = function()
       return { fg = c.black, bg = colors[vim.fn.mode()] }
     end,
     separator = { left = '' },
   },
   { "os.date('%d %b %y')",
-    color = function(section)
+    color = function()
       return { bg = colors[vim.fn.mode()], fg = c.black }
     end,
   }
@@ -165,15 +165,15 @@ function M.config()
       sections = {
         lualine_a = { a },
         lualine_b = b,
-        lualine_c = { c },
+        lualine_c = { cc },
         lualine_x = { "diagnostics" },
         lualine_y = y,
-        lualine_z = z,
+        lualine_z = z 
       },
       inactive_sections = {
         lualine_a = { a },
         lualine_b = b,
-        lualine_c = { c },
+        lualine_c = { cc },
         lualine_x = { "diagnostics" },
         lualine_y = y,
         lualine_z = z,

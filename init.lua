@@ -6,7 +6,7 @@ g.highlighturl_enabled = true -- highlight URLs by default
 require "plugins"
 require "mappings"
 require "colors"
-
+-- load snippets from path/of/your/nvim/config/my-cool-snippets
 vim.opt.fillchars:append { eob = " " } -- remove ~
 local Options = {
   backup = false, -- creates a backup file
@@ -53,4 +53,3 @@ local Options = {
 for k, v in pairs(Options) do
   vim.opt[k] = v
 end
-

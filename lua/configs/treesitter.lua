@@ -33,7 +33,7 @@ treesitter.setup({
 		max_file_lines = nil,
 	},
 	autopairs = { enable = true },
-	autotag = { enable = true },
+	autotag = { enable = false},
 	incremental_selection = { enable = true },
 	indent = { enable = false },
 })

@@ -1,0 +1,12 @@
+{
+  "Import Statement": {
+    "prefix": "imp",
+    "body": "import ${0:moduleName} from '${1:module}'",
+    "description": "Import Statement"
+  },
+  "Arrow Function": {
+    "prefix": "af",
+    "body": "() => (${0})",
+    "description": "Arrow Function"
+  }
+}

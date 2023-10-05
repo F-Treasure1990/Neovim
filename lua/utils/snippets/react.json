@@ -1,0 +1,38 @@
+{
+  "React Import Statement": {
+    "prefix": "imp",
+    "body": "import ${0:moduleName} from '${1:module}'",
+    "description": "React Import Statement"
+  },
+  "Next Use Client": {
+    "prefix": "client",
+    "body": "'use client'",
+    "description": "next use client"
+  },
+  "Typescript React Function Component": {
+    "prefix": "josh",
+    "body": [
+      "import { FC } from 'react'",
+      "",
+      "interface ${TM_FILENAME_BASE}Props {",
+      "  $1",
+      "}",
+      "",
+      "const $TM_FILENAME_BASE: FC<${TM_FILENAME_BASE}Props> = ({$2}) => {",
+      "  return <div>$TM_FILENAME_BASE</div>",
+      "}",
+      "",
+      "export default $TM_FILENAME_BASE"
+    ],
+    "description": "Typescript React Function Component"
+  },
+  "React Functional Component": {
+    "prefix": "ffc",
+    "body": [
+      "export default function ${1:${TM_FILENAME_BASE}}( {${2:props}} ) {",
+      "  return <div>${3:${TM_FILENAME_BASE} Component}</div>",
+      "}"
+    ],
+    "description": "React Functional Component"
+  }
+}
